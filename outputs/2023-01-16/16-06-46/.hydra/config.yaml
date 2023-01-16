@@ -1,0 +1,31 @@
+input_dir: /kaggle/working/
+seed: 2222
+n_folds: 5
+target: target
+boosting_type: dart
+metric: binary_logloss
+cat_features:
+- B_30
+- B_38
+- D_114
+- D_116
+- D_117
+- D_120
+- D_126
+- D_63
+- D_64
+- D_66
+- D_68
+params:
+  objective: binary
+  metric: configuration.metric
+  boosting: configuration.boosting_type
+  seed: configuration.seed,
+  num_leaves: 100
+  learning_rate: 0.01
+  feature_fraction: 0.2
+  bagging_freq: 10
+  bagging_fraction: 0.5
+  n_jobs: -1
+  lambda_l2: 2
+  min_data_in_leaf: 40
