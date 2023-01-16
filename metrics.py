@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def amex_metric(y_true, y_pred):
     labels = np.array([y_true, y_pred]).T
     labels = labels[np.argsort(-y_pred)]
@@ -18,7 +19,8 @@ def amex_metric(y_true, y_pred):
         gini[i] = np.sum((lorentz - weight_random) * weight)
     return 0.5 * (gini[1] / gini[0] + top_four)
 
+
 def lightgbm_amex_metric(y_pred, y_true):
     y_true = y_true.get_label()
     metric_value = amex_metric(y_true, y_pred)
-    return 'amex_metric', metric_value, True
+    return "amex_metric", metric_value, True
